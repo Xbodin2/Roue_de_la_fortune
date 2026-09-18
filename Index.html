@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#12062b">
+<title>La Roue de la Fortune</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header>
+    <div id="logo">LA ROUE DE LA<br><b>F<span class="o">O</span>RTUNE</b></div>
+    <div id="jackpot"><small>JACKPOT</small><b id="jackVal">23 000 €</b></div>
+    <div id="roundBox"><span id="roundStars">★</span><span id="roundLbl">MANCHE 1</span></div>
+  </header>
+  <main>
+    <aside id="wheelZone">
+      <div id="wheelWrap"><canvas id="wheel" width="640" height="640"></canvas><div id="ptr"></div></div>
+      <div id="spinHint">Glissez sur la roue ou appuyez sur LANCER</div>
+    </aside>
+    <section id="center">
+      <div id="cat"></div>
+      <div id="board"></div>
+      <div id="log"></div>
+    </section>
+    <aside id="side">
+      <div id="scores"></div>
+      <div id="actions">
+        <button id="btnSpin">🎡 LANCER LA ROUE</button>
+        <button id="btnVowel">🔤 VOYELLE (250 €)</button>
+        <button id="btnSolve">💡 PROPOSER UNE SOLUTION</button>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<div id="flash"></div>
+<div id="fx"></div>
+
+<!-- MENU PRINCIPAL -->
+<div class="ov" id="ovMenu"><div class="panel menu">
+  <div id="bigLogo">LA ROUE DE LA<br><b>F<span class="o">O</span>RTUNE</b></div>
+  <button class="mb" id="mSolo">🎡 JOUER EN SOLO (vs 2 IA)</button>
+  <button class="mb" id="mPass">📱 PASS &amp; PLAY (2-3 joueurs)</button>
+  <button class="mb" id="mCareer">🏆 CARRIÈRE</button>
+  <button class="mb" id="mRules">📖 RÈGLES</button>
+  <button class="mb small" id="mSound">🔊 SON : ACTIVÉ</button>
+</div></div>
+
+<!-- CONFIGURATION -->
+<div class="ov hidden" id="ovSetup"><div class="panel">
+  <h2 id="setupTitle">CONFIGURATION</h2>
+  <div id="setupBody"></div>
+  <div class="row"><button class="mb" id="setupStart">▶ COMMENCER</button><button class="mb small" id="setupBack">RETOUR</button></div>
+</div></div>
+
+<!-- CLAVIER VIRTUEL -->
+<div class="ov hidden" id="ovKB"><div class="panel kb">
+  <h2 id="kbTitle"></h2>
+  <div id="kbField" class="hidden"></div>
+  <div id="kbTimer" class="hidden"><i></i></div>
+  <div id="kbKeys"></div>
+  <div class="row"><button class="mb hidden" id="kbOK">✔ VALIDER</button><button class="mb small hidden" id="kbCancel">ANNULER</button></div>
+</div></div>
+
+<!-- PASS & PLAY -->
+<div class="ov hidden" id="ovHand"><div class="panel">
+  <h2 id="handTxt"></h2><p>Passez l'appareil puis touchez :</p>
+  <button class="mb" id="handReady"> JE SUIS PRÊT(E)</button>
+</div></div>
+
+<!-- HOLD-UP -->
+<div class="ov hidden" id="ovHold"><div class="panel">
+  <h2>🦠 HOLD-UP !</h2><p>Choisissez l'adversaire à voler :</p>
+  <div id="holdList" class="row"></div>
+</div></div>
+
+<!-- GRANDE FINALE -->
+<div class="ov hidden" id="ovFin"><div class="panel wide">
+  <h2>🌟 GRANDE FINALE 🌟</h2>
+  <div id="finBody"></div>
+</div></div>
+
+<!-- FIN DE PARTIE -->
+<div class="ov hidden" id="ovEnd"><div class="panel">
+  <h2 id="endTitle"></h2>
+  <div id="endBody"></div>
+  <div class="row"><button class="mb" id="endReplay">🔄 REJOUER</button><button class="mb small" id="endMenu">🏠 MENU</button></div>
+</div></div>
+
+<!-- RÈGLES / CARRIÈRE -->
+<div class="ov hidden" id="ovRules"><div class="panel scroll"><h2>📖 RÈGLES</h2>
+  <p><b>3 manches + Grande Finale.</b> À votre tour : <b>lancer la roue</b> (glissez !), proposer une <b>consonne</b> (gain = valeur × occurrences), <b>acheter une voyelle</b> (250 €), ou <b>proposer la solution</b>.</p>
+  <p><b>BANQUEROUTE</b> : cagnotte de la manche perdue + tour passé. <b>PASSE</b> : tour perdu, argent conservé. <b>HOLD-UP</b> : volez la cagnotte d'un adversaire au choix. <b>JACKPOT</b> : consonne juste = jackpot armé ; résolvez l'énigme dans la foulée pour le remporter !</p>
+  <p><b>Solution fausse</b> : −500 € et tour perdu. <b>Finale</b> : R,S,T,L,N,E offerts + 3 consonnes + 1 voyelle au choix, puis 10 s pour taper la solution. Enveloppe bonus : 1 000 / 5 000 / 10 000 € ou SUPER LOT.</p>
+  <p><b>IA</b> : 🛡️ Béatrice la prudente, 🔥 Enzo le flambeur, 🎓 le Professeur érudit — difficultés Facile / Moyen / Expert.</p>
+  <button class="mb" id="rulesClose">FERMER</button>
+</div></div>
+<div class="ov hidden" id="ovCareer"><div class="panel"><h2>🏆 CARRIÈRE</h2><div id="careerBody"></div><button class="mb" id="careerClose">FERMER</button></div></div>
+
+<div id="ovRotate"><div>📱↻<br>Tournez votre appareil<br>en mode <b>PAYSAGE</b></div></div>
+
+<script src="enigmes.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<path d="M50 50 L50 0 A50 50 0 0 1 85.36 14.64 Z" fill="#ff2d95"/><path d="M50 50 L85.36 14.64 A50 50 0 0 1 100 50 Z" fill="#7b2ff7"/>
+<path d="M50 50 L100 50 A50 50 0 0 1 85.36 85.36 Z" fill="#ffd600"/><path d="M50 50 L85.36 85.36 A50 50 0 0 1 50 100 Z" fill="#ff7a00"/>
+<path d="M50 50 L50 100 A50 50 0 0 1 14.64 85.36 Z" fill="#22dd44"/><path d="M50 50 L14.64 85.36 A50 50 0 0 1 0 50 Z" fill="#2979ff"/>
+<path d="M50 50 L0 50 A50 50 0 0 1 14.64 14.64 Z" fill="#ff1744"/><path d="M50 50 L14.64 14.64 A50 50 0 0 1 50 0 Z" fill="#00e5ff"/>
+<circle cx="50" cy="50" r="12" fill="#fff"/></svg>
