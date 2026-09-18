@@ -1,0 +1,3 @@
+{"name":"La Roue de la Fortune","short_name":"RoueFortune","start_url":".","display":"fullscreen",
+"orientation":"landscape","background_color":"#12062b","theme_color":"#7b2ff7",
+"icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]}
